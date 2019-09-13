@@ -181,6 +181,9 @@ def view_raw_data(df):
 def get_time():
     return time.time()
 
+def time_diff(time_start, time_end):
+    return time_end - time_start
+
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
@@ -197,7 +200,7 @@ def time_stats(df):
     # display the most common start hour
     print("The most common hour for bikeshare is: {}".format(df['Start Time'].dt.hour.mode()[0]))
 
-    print("\nThis took %s seconds." % (get_time() - start_time))
+    print("\nThis took %s seconds." % (time_diff(start_time, get_time())))
     print('-'*40)
 
 
@@ -217,7 +220,7 @@ def station_stats(df):
     df2 = pd.DataFrame(df.groupby(['Start Station', 'End Station']).size().nlargest(1).reset_index(name = 'Count'))
     print("The most common combination of start and end stations is {} (start) and {} (end)".format(df2['Start Station'][0], df2['End Station'][0]))
 
-    print("\nThis took %s seconds." % (get_time() - start_time))
+    print("\nThis took %s seconds." % (time_diff(start_time, get_time())))
     print('-'*40)
 
 
@@ -238,7 +241,7 @@ def trip_duration_stats(df):
     # pd.set_option('precision', 0)
 
 
-    print("\nThis took %s seconds." % (get_time() - start_time))
+    print("\nThis took %s seconds." % (time_diff(start_time, get_time())))
     print('-'*40)
 
 
@@ -270,7 +273,7 @@ def user_stats(df):
 
 
 
-    print("\nThis took %s seconds." % (get_time() - start_time))
+    print("\nThis took %s seconds." % (time_diff(start_time, get_time())))
     print('-'*40)
 
 
