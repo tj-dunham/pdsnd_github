@@ -178,12 +178,15 @@ def view_raw_data(df):
         num_rows = get_user_num([1,max_rows], "How many rows would you like to view? (Choose 1 to {}): ".format(max_rows))
         print(df.rename(columns = {'Unnamed: 0' : 'IDs'}).head(num_rows))
 
+def get_time():
+    return time.time()
+
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
-    start_time = time.time()
+    start_time = get_time()
 
     # display the most common month
     print("The most common month for bikeshare is: {}".format(most_common(df, 'month')))
@@ -194,7 +197,7 @@ def time_stats(df):
     # display the most common start hour
     print("The most common hour for bikeshare is: {}".format(df['Start Time'].dt.hour.mode()[0]))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % (get_time() - start_time))
     print('-'*40)
 
 
@@ -202,7 +205,7 @@ def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
-    start_time = time.time()
+    start_time = get_time()
 
     # display most commonly used start station
     print("The most common start station for bikeshare is: {}".format(most_common(df, 'Start Station')))
@@ -214,7 +217,7 @@ def station_stats(df):
     df2 = pd.DataFrame(df.groupby(['Start Station', 'End Station']).size().nlargest(1).reset_index(name = 'Count'))
     print("The most common combination of start and end stations is {} (start) and {} (end)".format(df2['Start Station'][0], df2['End Station'][0]))
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % (get_time() - start_time))
     print('-'*40)
 
 
@@ -222,7 +225,7 @@ def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
     print('\nCalculating Trip Duration...\n')
-    start_time = time.time()
+    start_time = get_time()
 
     # display total travel time
     pd.set_option('precision', 2)
@@ -235,7 +238,7 @@ def trip_duration_stats(df):
     # pd.set_option('precision', 0)
 
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % (get_time() - start_time))
     print('-'*40)
 
 
@@ -243,7 +246,7 @@ def user_stats(df):
     """Displays statistics on bikeshare users."""
 
     print('\nCalculating User Stats...\n')
-    start_time = time.time()
+    start_time = get_time()
 
     # Display counts of user types
     print(count_all(df, 'User Type'))
@@ -267,7 +270,7 @@ def user_stats(df):
 
 
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print("\nThis took %s seconds." % (get_time() - start_time))
     print('-'*40)
 
 
