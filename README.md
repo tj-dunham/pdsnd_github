@@ -5,7 +5,7 @@
 >US Bikeshare Data Project
 
 ### Description
-
+>Takes bikeshare data from three major US cities. Analyzes data per user request.
 
 ### Files used
 - bikeshare.py
