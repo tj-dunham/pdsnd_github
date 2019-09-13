@@ -8,7 +8,10 @@
 
 
 ### Files used
-
+- bikeshare.py
+- chicago.csv
+- new_york_city.csv
+- washington.csv
 
 ### Credits
 - For the most frequent combination of start and end stations code segment, I referred to the following material on Stack Overflow:
