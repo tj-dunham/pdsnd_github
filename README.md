@@ -23,6 +23,6 @@
 - Following gave guidance for changing the name of the unnamed ID column:
 >https://stackoverflow.com/questions/26098710/rename-unnamed-column-pandas-dataframe
 
-- My girlfriend
+- Kori Eliaz
 >https://github.com/korieliaz
 
